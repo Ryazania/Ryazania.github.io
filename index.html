@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ryazania Utami | Portfolio</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTGzjja4wl2Nq5rZ9iZl+zV9zzTtmI3G5F4EoazV5TwvWg"
+    crossorigin="anonymous"
+  />
+
+
+
+  <style>
+    :root {
+      --main-bg: #f8f9fa;         /* Light grey background */
+      --header-bg: #8b004b;       /* Deep pink header */
+      --accent: #d63384;          /* Pink highlight */
+      --card-bg: #ffffff;         /* White cards */
+      --text-dark: #333333;       /* Dark grey text */
+      --text-muted: #6c757d;      /* Muted grey text */
+      --link-color: #b3005e;      /* Pink links */
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--main-bg);
+      color: var(--text-dark);
+    }
+
+    header {
+      background: var(--header-bg);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: #ffe4f0;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffc1de;
+    }
+
+    section {
+      padding: 2rem 1rem;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .profile-pic-container {
+     text-align: center;
+    margin-top: 2rem;
+    }
+
+    .profile-pic {
+     width: 150px;
+     height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(214, 51, 132, 0.1); /* soft pink shadow */
+      border-left: 5px solid var(--accent);
+      transition: transform 0.2s ease;
+      overflow: hidden; /* ensure image doesn't overflow during zoom */
+    position: relative;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card h3 {
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      color: var(--text-muted);
+    }
+
+    .project-thumb {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.project-card:hover .project-thumb {
+  transform: scale(1.05);
+  filter: brightness(0.85);
+}
+
+.tags {
+  margin: 0.5rem 0 1rem;
+}
+
+.tags span {
+  display: inline-block;
+  background-color: #f2ddea;
+  color: var(--text-dark);
+  padding: 0.25rem 0.6rem;
+  margin: 0 0.4rem 0.4rem 0;
+  font-size: 0.8rem;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--header-bg);
+      color: white;
+      margin-top: 2rem;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: var(--accent);
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      transition: background-color 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: #b3005e;
+    }
+
+    a {
+      color: var(--link-color);
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    #skills {
+  padding: 2rem 1rem;
+  max-width: 960px;
+  margin: auto;
+}
+.skill-icon {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 0.5rem;
+  object-fit: contain;
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  color: var(--text-dark);
+  border-left: 4px solid var(--accent);
+  transition: transform 0.2s ease, background 0.3s;
+}
+
+.skill-item:hover {
+  transform: translateY(-3px);
+  background: #fff0f5;
+}
+
+.skill-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+
+  </style>
+</head>
+
+
+
+<body>
+
+  <header>
+    <h1>Ryazania Utami</h1>
+    <p>Data Enthusiast | Analyst | Storyteller | Restaurant Manager</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="profile-pic-container">
+  <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=faces&fit=crop&w=200&h=200" alt="Profile Picture" class="profile-pic" />
+</div>
+
+
+  <section id="about">
+    <h2>About Me</h2>
+     <p><strong>Hi there👋 </strong>— I’m glad you’re here!</p>
+
+  <p>
+    I come from a hands-on background in restaurant management in Sydney, Australia. I have over 10 years  of experience running operations in a fast-paced, high-pressure industry. From coordinating maintenance to be align with random inspection from local council, to managing safety systems, kitchen equipments, external contractors, tight staffing budgets, and making sure I made a cute puppy face on my customer's coffee (most important of course!) — I’ve learned how to keep things running smoothly, efficiently, and safely, even when the pressure is on.
+  </p>
+
+  <p>
+    But here’s the fun twist: somewhere in all of that chaos, I fell in love… with <strong>data</strong>.
+  </p>
+
+  <p>
+    What started as a curiosity — looking at sales numbers,  tracking what dishes were flying off the menu (and what was just collecting dust), and even analyzing team attendance — quickly turned into a passion. I realized how much insight we can get just by paying attention to the numbers. Data started helping me make better decisions every day, and it sparked something in me: I wanted to learn more.
+  </p>
+
+  <p>
+    <strong>So I did.</strong> Outside of work, I dedicated my time to studying data analytics — diving into courses, earning certifications, and working on projects that allowed me to apply what I was learning to real-world situations. It’s been incredibly rewarding to bridge my operational experience with a data-driven approach.
+  </p>
+
+  <p>
+    Now, I’m excited to take that next step and bring this new skillset into a professional data-focused role. I’m especially drawn to roles where I can combine my knowledge of business operations with data storytelling, helping teams make smarter, faster decisions.
+  </p>
+
+  <p>
+    If you’re looking for someone who understands how the real world works — and who’s equally comfortable analyzing what the data says about it — I’d love to connect. Or... you're here out of curiosity, collaboration, or just stumbled by — welcome! I'm always happy to connect, share stories, or chat about food, data, or anything in between.
+  </p>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+
+
+    <div class="project-card">
+      <img src="images/projects/gender-inclusion.jpg" alt="gender inclusion" class="project-thumb">
+      <h3>Power BI</h3><h4>Gender Inclusion</h4>
+      <p>An interactive dashboard built with PowerBI, The project focused on examining the proportion of male and female employees in 2020, their promotion rates in 2021, and how these related to performance and attrition trends. Analysis between performance vs promotion percentage by gender</p>
+      <div class="tags">
+        <span>PowerBI</span>
+        <span>KPIs</span>
+        <span>Dashboard</span>
+      </div>
+      <a class="button" href="#" target="_blank">View Project</a>
+    </div>
+
+   
+
+    <div class="project-card">
+      <img src="images/projects/powerbi.jpg" alt="PowerBI Report" class="project-thumb">
+      <h3>PowerBI</h3> <h4> Churn Risk Analysis</h4>
+      <p>Designed a multi-page analyze customer churn risk and develop an interactive Power BI dashboard to identify customers at high risk of leaving. This analysis aimed to help businesses proactively manage retention strategies based on subscription details, service types, and contract duration.</p>
+      <div class="tags">
+        <span>PowerBI</span>
+        <span>DAX</span>
+        <span>Visualization</span>
+      </div>
+      <a class="button" href="https://project.novypro.com/s29lUJ" target="_blank">View Project</a>
+    </div>
+
+    <div class="project-card">
+      <img src="images/projects/tableau-story.jpg" alt="Tableau Story" class="project-thumb">
+      <h3>Tableau</h3>
+      <p>I love diving into data with Tableau — from global emissions to world happiness scores, it's all about uncovering cool insights!</p>
+      <div class="tags">
+        <span>Tableau</span>
+        <span>Story</span>
+        <span>Report</span>
+      </div>
+      <a class="button" href="https://public.tableau.com/app/profile/ryazania.utami/viz/GlobalCO2Emmision1960-2011/Dashboard1" target="_blank">View Project</a>
+    </div>
+
+     <div class="project-card">
+      <img src="images/projects/customer-segmentation.jpg" alt="Customer Segmentation" class="project-thumb">
+      <h3>Customer Segmentation</h3>
+      <p>Used machine learning to segment customer behavior and purchasing patterns using Python and scikit-learn.</p>
+      <div class="tags">
+        <span>Python</span>
+        <span>scikit-learn</span>
+        <span>ML</span>
+      </div>
+      <a class="button" href="#" target="_blank">Under Construction, Sorry! :(( </a>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-item">
+      <img src="images/skills/powerbi.png" alt="PowerBI" class="skill-icon" />
+      PowerBI
+    </div>
+    <div class="skill-item">
+      <img src="images/skills/tableau.png" alt="Tableau" class="skill-icon" />
+      Tableau
+    </div>
+    <div class="skill-item">
+      <img src="images/skills/excel.png" alt="Excel" class="skill-icon" />
+      Excel
+    </div>
+    <div class="skill-item">
+      <img src="images/skills/sql.png" alt="SQL" class="skill-icon" />
+      SQL
+    </div>
+    <div class="skill-item">
+      <img src="images/skills/python.png" alt="Python" class="skill-icon" />
+      Python
+    </div>
+    <div class="skill-item">
+      <img src="images/skills/r.png" alt="R" class="skill-icon" />
+      R
+    </div>
+    <div class="skill-item">
+      <img src="images/skills/ai.png" alt="AI" class="skill-icon" />
+      AI
+    </div>
+    <div class="skill-item">
+      <img src="images/skills/shiny.png" alt="Shiny" class="skill-icon" />
+      Shiny
+    </div>
+  </div>
+</section>
+
+
+
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Let’s connect! Email me at <a href="mailto:utami.Ryazania@gmail.com">utami.Ryazania@gmail.com</a> or visit my <a href="https://www.linkedin.com/in/ryazania-utami-95079151/" target="_blank">LinkedIn profile</a>.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Ryazania Utami. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

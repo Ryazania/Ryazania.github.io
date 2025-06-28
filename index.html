@@ -11,6 +11,7 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTGzjja4wl2Nq5rZ9iZl+zV9zzTtmI3G5F4EoazV5TwvWg"
     crossorigin="anonymous"
   />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 
 
@@ -25,20 +26,40 @@
       --link-color: #b3005e;      /* Pink links */
     }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: var(--main-bg);
-      color: var(--text-dark);
+    
+
+   body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('images/background.jpg'); /* or use a full URL */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* optional: makes it stay in place while scrolling */
+  color: var(--text-dark);
     }
 
     header {
-      background: var(--header-bg);
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
+  position: relative;
+  background: url('images/your-image.jpg') center center / cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0, 0.5); /* semi-transparent black overlay */
+  z-index: 0;
+}
+
+header * {
+  position: relative;
+  z-index: 1;
+}
 
     nav {
       margin-top: 1rem;
@@ -80,6 +101,23 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
+    #about {
+    background-color: rgba(255, 255, 255, 0.85); /* white with some transparency */
+    padding: 2rem 1rem;
+    border-radius: 8px;
+    max-width: 960px;
+    margin: 2rem auto;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    #contact {
+    background-color: rgba(255, 255, 255, 0.85); /* white with some transparency */
+     padding: 2rem 1rem;
+     border-radius: 8px;
+     max-width: 960px;
+     margin: 2rem auto;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
     .projects {
       display: grid;
@@ -212,6 +250,53 @@
 .skill-icon {
   font-size: 2rem;
   margin-bottom: 0.5rem;
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.8rem;
+}
+
+.icon-item a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-item a:hover {
+  color: #8b004b;
+  transform: scale(1.15);
+}
+
+.icon-item span {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+}
+
+.tableau-icon {
+  height: 28px;
+  width: 28px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  margin-bottom: 0.2rem;
+}
+
+.icon-item a:hover .tableau-icon {
+  transform: scale(1.15);
 }
 
 
@@ -370,10 +455,51 @@
 
 
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Let’s connect! Email me at <a href="mailto:utami.Ryazania@gmail.com">utami.Ryazania@gmail.com</a> or visit my <a href="https://www.linkedin.com/in/ryazania-utami-95079151/" target="_blank">LinkedIn profile</a>.</p>
-  </section>
+ 
+
+
+<section id="contact" data-aos="fade-up">
+  <h2>Contact</h2>
+  <p>Let’s connect! Feel free to email utami.Ryazania@gmail.com or reach out via any platform below:</p>
+
+  <div class="contact-icons">
+    <div class="icon-item">
+      <a href="mailto:utami.Ryazania@gmail.com" title="Email" target="_blank">
+        <i class="fas fa-envelope"></i>
+        <span>Email</span>
+      </a>
+    </div>
+    <div class="icon-item">
+      <a href="https://www.linkedin.com/in/ryazania-utami-95079151/" title="LinkedIn" target="_blank">
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn</span>
+      </a>
+    </div>
+    <div class="icon-item">
+      <a href="https://github.com/yourusername" title="GitHub" target="_blank">
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+    <div class="icon-item">
+      <a href="https://public.tableau.com/app/profile/ryazania.utami" title="Tableau" target="_blank">
+        <img src="images/skills/tableau.png" alt="Tableau Icon" class="tableau-icon" />
+        <span>Tableau</span>
+      </a>
+    </div>
+    <div class="icon-item">
+      <a href="https://your-website.com" title="Website" target="_blank">
+        <i class="fas fa-globe"></i>
+        <span>Website</span>
+      </a>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 2rem;">
+    <a class="button" href="assets/resume.pdf" download>📄 Download My Resume</a>
+  </div>
+</section>
+
 
   <footer>
     <p>&copy; 2025 Ryazania Utami. All rights reserved.</p>
